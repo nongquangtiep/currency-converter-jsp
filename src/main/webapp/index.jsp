@@ -3,21 +3,38 @@
 <html lang="vi">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Từ điển Anh - Việt</title>
+    <title>Product Discount Calculator</title>
     <style>
-        body { font-family: 'Arial', sans-serif; display: flex; justify-content: center; margin-top: 100px; background-color: #f8fafc; }
-        .dictionary-container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; width: 350px; }
-        input { padding: 12px; margin: 15px 0; width: 90%; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
-        button { background-color: #1b2a7a; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; width: 90%; font-weight: bold; font-size: 16px; }
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; margin-top: 80px; background-color: #f8fafc; }
+        .calculator-container { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 380px; }
+        h2 { color: #1b2a7a; text-align: center; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 6px; color: #333; }
+        input[type="text"], input[type="number"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #1b2a7a; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; font-size: 16px; margin-top: 10px; }
         button:hover { background-color: #121c54; }
     </style>
 </head>
 <body>
-    <div class="dictionary-container">
-        <h2 style="color: #1b2a7a;">Từ Điển Anh - Việt</h2>
-        <form action="translate" method="POST">
-            <input type="text" name="word" placeholder="Nhập từ tiếng Anh..." required autofocus />
-            <button type="submit">Tìm kiếm</button>
+    <div class="calculator-container">
+        <h2>Product Discount Calculator</h2>
+        <form action="display-discount" method="POST">
+            <div class="form-group">
+                <label>Product Description:</label>
+                <input type="text" name="description" placeholder="Nhập mô tả sản phẩm" required />
+            </div>
+            
+            <div class="form-group">
+                <label>List Price ($):</label>
+                <input type="number" name="price" placeholder="Nhập giá niêm yết" required step="any" min="0" />
+            </div>
+            
+            <div class="form-group">
+                <label>Discount Percent (%):</label>
+                <input type="number" name="discount_percent" placeholder="Nhập phần trăm chiết khấu" required step="any" min="0" max="100" />
+            </div>
+            
+            <button type="submit">Calculate Discount</button>
         </form>
     </div>
 </body>
